@@ -1,26 +1,19 @@
 package org.spartabots.restart;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
+import android.view.MotionEvent;
 import android.view.View;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import android.widget.Button;
 
 /**
  * TODO: document your custom view class.
  */
 public class DrawingView extends View {
     private Paint paint;
-
+    private Button aButton, bButton, upButton, downButton, leftButton, rightButton;
     int[][] board = new int[7][7];
 
     int cellWidth;
@@ -46,7 +39,6 @@ public class DrawingView extends View {
         paint.setColor(0xFFDDDDDD);
         paint.setAntiAlias(true);
     }
-
     @Override
     public void onDraw(Canvas canvas) {
 
@@ -54,7 +46,69 @@ public class DrawingView extends View {
 
         paint.setColor(0xFFFFFFFF);
         canvas.drawCircle((int) (cellWidth * (playerX + 0.5)), (int) (cellWidth * (playerY + 0.5)), cellWidth / 2, paint);
-
+        Buttons();
         invalidate();
+    }
+    public void Buttons(){
+        //a
+        aButton = (Button) findViewById(R.id.aButton);
+
+        aButton.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+
+                return false;
+            }
+        });
+        //b
+        bButton = (Button) findViewById(R.id.bButton);
+
+        bButton.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+
+                return false;
+            }
+        });
+        //up
+        upButton = (Button) findViewById(R.id.upButton);
+
+        upButton.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+
+                return false;
+            }
+        });
+        //down
+        downButton = (Button) findViewById(R.id.downButton);
+
+        downButton.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+
+                return false;
+            }
+        });
+        //right
+        rightButton = (Button) findViewById(R.id.rightButton);
+
+        rightButton.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+
+                return false;
+            }
+        });
+        //left
+        leftButton = (Button) findViewById(R.id.leftButton);
+
+        leftButton.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+
+                return false;
+            }
+        });
     }
 }
