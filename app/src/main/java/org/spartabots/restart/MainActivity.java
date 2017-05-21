@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
                 drawingView.movePlayerUp();
             }
             public void onSwipeRight() {
-                System.out.println(drawingView.getPlayerPos());
                 drawingView.movePlayerRight();
             }
             public void onSwipeLeft() {
