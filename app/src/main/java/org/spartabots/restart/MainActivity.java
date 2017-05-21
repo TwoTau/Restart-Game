@@ -1,6 +1,5 @@
 package org.spartabots.restart;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -16,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
         DisplayMetrics metrics = getApplicationContext().getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
+        int height = metrics.heightPixels;
 
         drawingView = new DrawingView(this, width);
 
