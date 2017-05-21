@@ -14,16 +14,16 @@ import java.util.zip.Inflater;
 
 public class DrawingView extends View {
     private Paint paint;
-    private int[][] board = new int[7][7];
+    private int[][] board = new int[21][21];
 
     private int cellWidth;
 
-    private int playerX = 3;
-    private int playerY = 6;
+    private int playerX = 10;
+    private int playerY = 20;
 
     private int levelNumber = 0;
 
-    private boolean revealEverything = false;
+    private boolean revealEverything = true;
 
     private final int EMPTY_CODE = 0;
     private final int DOOR_CODE = 1;
@@ -39,7 +39,7 @@ public class DrawingView extends View {
     public DrawingView(Context context, int width) {
         super(context);
         c = context;
-        cellWidth = width / 7;
+        cellWidth = width / 21;
 
         loadLevel();
 
@@ -90,12 +90,12 @@ public class DrawingView extends View {
         }
     }
     public void movePlayerRight() {
-        if(playerX < 7) {
+        if(playerX < board[0].length - 1) {
             ++playerX;
         }
     }
     public void movePlayerDown() {
-        if(playerY < 7) {
+        if(playerY < board.length - 1) {
             ++playerY;
         }
     }
@@ -129,8 +129,8 @@ public class DrawingView extends View {
         }
         else if(levelNumber == 2) { // cell in front of player is killer
             board[0][3] = LOCKDOOR_CODE;
-            int randomX = (int) Math.random()*7;
-            int randomY = (int) Math.random()*7;
+            int randomX = (int) Math.random()*board[0].length;
+            int randomY = (int) Math.random()*board.length;
             board[randomX][randomY] = KEY_CODE;
         }
         else if(levelNumber == 3) { // cell in front of player is teleporter
