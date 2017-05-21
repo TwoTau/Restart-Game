@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,5 +23,22 @@ public class MainActivity extends AppCompatActivity {
         drawingView.setLayoutParams(new ViewGroup.LayoutParams(width, width));
 
         setContentView(drawingView);
+
+        drawingView.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            public void onSwipeTop() {
+                drawingView.movePlayerUp();
+            }
+            public void onSwipeRight() {
+                System.out.println(drawingView.getPlayerPos());
+                drawingView.movePlayerRight();
+            }
+            public void onSwipeLeft() {
+                drawingView.movePlayerLeft();
+            }
+            public void onSwipeBottom() {
+                drawingView.movePlayerDown();
+            }
+
+        });
     }
 }
